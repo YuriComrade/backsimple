@@ -1,0 +1,56 @@
+@usersp = http://localhost:3000/user/usersp
+
+@createMateria = http://localhost:3000/user/createMateria
+
+@asociarAlumno = http://localhost:3000/user/asociarAlumno
+
+@login = http://localhost:3000/user/login
+
+@getMaterias = http://localhost:3000/user/getMaterias
+
+POST {{login}}
+Content-Type: application/json
+
+{
+    "dni" : "18",
+    "passwor" : "1234"
+}
+###
+
+POST {{usersp}}
+Content-Type: application/json
+
+{
+    "dni" : "00018",
+    "nombre" : "lumer",
+    "passwor" : "1234"
+}
+###
+
+POST {{createMateria}}
+Content-Type: application/json
+authtoken: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkbmkiOiIxOCIsImlhdCI6MTcxODc3OTU4OSwiZXhwIjoxNzE4Nzg1NTg5fQ.fRy_Szom7iaBvXcL6jd-O5KYE521lHbMx11fRcgrGzg
+
+{
+    "nombre_materia" : "matem"
+    
+}
+###
+
+POST {{asociarAlumno}}
+Content-Type: application/json
+authtoken: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkbmkiOiIxOCIsImlhdCI6MTcxODc3OTU4OSwiZXhwIjoxNzE4Nzg1NTg5fQ.fRy_Szom7iaBvXcL6jd-O5KYE521lHbMx11fRcgrGzg
+
+{
+    "dni" : "18",
+    "materias_ids" : [1, 2, 3]
+}
+###
+GET {{getMaterias}}
+authtoken: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkbmkiOiIxOCIsImlhdCI6MTcxODc3OTU4OSwiZXhwIjoxNzE4Nzg1NTg5fQ.fRy_Szom7iaBvXcL6jd-O5KYE521lHbMx11fRcgrGzg
+
+
+{
+    "dni" : "18"
+}
+#body
